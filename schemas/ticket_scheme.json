@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "properties": {
+        "service_type": {
+            "type": "string",
+            "enum": [
+                "luz",
+                "gas",
+                "agua",
+                "telefono",
+                "internet"
+            ]
+        },
+        "description": {
+            "type": "string"
+        },
+        "expirationDate": {
+            "type": "string"
+        },
+        "amount": {
+            "type": "number"
+        },
+        "pay_status": {
+            "type": "string",
+            "enum": [
+                "pending",
+                "paid",
+                "rejected"
+            ]
+        },
+        "bar_code": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "service_type",
+        "expirationDate",
+        "amount",
+        "pay_status",
+        "bar_code"
+    ]
+}

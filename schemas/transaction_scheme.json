@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "payment_method": {
+            "type": "string",
+            "enum": [
+                "credit_card",
+                "debit_card",
+                "cash"
+            ]
+        },
+        "card_number": {
+            "type": "string",
+            "pattern": "^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$",
+            "description": "Card number must be in the format XXXX-XXXX-XXXX-XXXX"
+        },
+        "amount": {
+            "type": "number",
+            "minimum": 0
+        },
+        "pay_date": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "payment_method",
+        "card_number",
+        "amount",
+        "pay_date"
+    ]
+}
