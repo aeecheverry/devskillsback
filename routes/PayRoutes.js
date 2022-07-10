@@ -79,8 +79,8 @@ exports.PayRoutes = class PayRoutes {
             try {
                 console.log("Listing transactions...");
                 const body = {
-                    from_date: req.params.from_date,
-                    to_date: req.params.to_date
+                    from_date: req.query.from_date,
+                    to_date: req.query.to_date
                 };
                 const ticket = await this.payBusiness.listTransactions(body);
                 response(req, res, 200, ticket);

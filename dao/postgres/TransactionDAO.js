@@ -27,11 +27,9 @@ exports.TransactionDAO = class TransactionDAO {
                 group: ["pay_date"],
             };
             if(from_date && to_date) {
-                // query.where = {
-                //     pay_date: {
-                //         [client.Op.between]: [from_date, to_date]
-                //     }
-                // };
+                query.from = {
+                    $between: [from_date, to_date]
+                }
             }
             const transactions = await client.models.Transaction.findAll(query);
             return transactions;
