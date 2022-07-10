@@ -1,10 +1,11 @@
+"use strict";
 const BusinessFactory = require("../factories/BusinessFactory");
 const AbstractDAOFactory = require("../factories/AbstractDAOFactory");
 const expect = require("chai").expect;
 
 const dependencies = {
-    payableDao: AbstractDAOFactory.getFactory().getDAO("payable"),
-    transactionDao: AbstractDAOFactory.getFactory().getDAO("transaction")
+    payableDao: AbstractDAOFactory.getFactory("mock").getDAO("payable"),
+    transactionDao: AbstractDAOFactory.getFactory("mock").getDAO("transaction")
 }
 
 describe("PayBusiness", () => {
@@ -32,16 +33,16 @@ describe("PayBusiness", () => {
             pay_date: "2022-07-15"
         }
         const output = await payBusiness.payTicket(transaction);
-        expect(output.id).toBeDefined();
+        expect(output.id).to.exist;
     }).timeout(10000);
 
     it("should list payables", async () => {
         const output = await payBusiness.listPayables({ service_type: "luz" });
-        expect(output.length).toBeGreaterThan(0);
+        expect(output.length).to.be.greaterThan(0);
     }).timeout(10000);
 
     it("should list transactions", async () => {
         const output = await payBusiness.listTransactions({from_date: "2022-01-01", to_date: "2022-07-31"});
-        expect(output.length).toBeGreaterThan(0);
+        expect(output.length).to.be.greaterThan(0);
     }).timeout(10000);
 });

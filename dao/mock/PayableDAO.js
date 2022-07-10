@@ -13,6 +13,14 @@ exports.PayableDAO = class PayableDAO {
         }
     }
 
+    async update({ pay_status, bar_code }) {
+        try{
+            return await DB.update(this.collectionName, { pay_status, bar_code });
+        } catch (error) {
+            throw error;
+        }
+    }
+
     async list({ service_type }) {
         try{
             const query = {
