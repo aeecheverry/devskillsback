@@ -1,3 +1,4 @@
+"use strict";
 const ticket_scheme = require("./ticket_scheme");
 const transaction_scheme = require("./transaction_scheme");
 

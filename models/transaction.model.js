@@ -1,3 +1,4 @@
+"use strict";
 const  { Model, DataTypes, Sequelize } = require("sequelize");
 const TRANSACTION_TABLE = "transactions";
 
