@@ -1,3 +1,4 @@
+"use strict";
 const { Ticket , TicketSchema } = require("./ticket.model");
 const { Transaction , TransactionSchema } = require("./transaction.model");
 

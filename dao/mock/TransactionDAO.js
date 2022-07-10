@@ -1,5 +1,6 @@
 const DB = require("./DB").DB;
 
+"use strict";
 exports.TransactionDAO = class TransactionDAO {
     constructor() {
         this.collectionName = "Tickets";

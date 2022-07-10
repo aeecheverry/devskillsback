@@ -1,5 +1,5 @@
 const DB = require("./DB").DB;
-
+"use strict";
 exports.PayableDAO = class PayableDAO {
     constructor() {
         this.collectionName = "Tickets";
@@ -19,6 +19,14 @@ exports.PayableDAO = class PayableDAO {
                 service_type
             }
             return await DB.list(this.collectionName, query);
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    async getByBarCode(barCode) {
+        try{
+            return await DB.getByBarCode(this.collectionName, barCode);
         } catch (error) {
             throw error;
         }

@@ -1,3 +1,4 @@
+"use strict";
 const COLLECTIONS = {
     "Tickets" : [],
     "Transactions" : []

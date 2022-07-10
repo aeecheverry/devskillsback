@@ -1,3 +1,4 @@
+"use strict";
 const MockDAOFactory = require("./mock/DAOFactory");
 const MongoDBDAOactory = require("./mongodb/DAOFactory");
 const PostgresDAOFactory = require("./postgres/DAOFactory");
