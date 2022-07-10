@@ -1,11 +1,11 @@
 const MockDAOFactory = require("./mock/DAOFactory");
 const MongoDBDAOactory = require("./mongodb/DAOFactory");
-const MySQLDAOFactory = require("./mysql/DAOFactory");
+const PostgresDAOFactory = require("./postgres/DAOFactory");
 
 const DAO_FACTORY_MAP = {
     "mock": MockDAOFactory,
     "mongodb": MongoDBDAOactory,
-    "mysql": MySQLDAOFactory,
+    "postgres": PostgresDAOFactory,
 }
 
 exports.getFactory = (factory) => {

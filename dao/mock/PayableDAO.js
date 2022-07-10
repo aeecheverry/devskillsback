@@ -1,4 +1,4 @@
-const DB = require('./DB').DB;
+const DB = require("./DB").DB;
 
 exports.PayableDAO = class PayableDAO {
     constructor() {

@@ -16,5 +16,12 @@ exports.DB = {
         return new Promise((resolve, reject) => {
             resolve(tickets);
         });
+    },
+    getByBarCode: async (collectionName, barCode) => {
+        const tickets = COLLECTIONS[collectionName];
+        const ticket = tickets.find(ticket => ticket.bar_code === barCode);
+        return new Promise((resolve, reject) => {
+            resolve(ticket);
+        });
     }
 }

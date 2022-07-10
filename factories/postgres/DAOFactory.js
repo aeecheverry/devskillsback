@@ -1,7 +1,7 @@
 "use strict";
 
-const PayableDAO = require("../../dao/mock/PayableDAO").PayableDAO;
-const TransactionDAO = require("../../dao/mock/TransactionDAO").TransactionDAO;
+const PayableDAO = require("../../dao/postgres/PayableDAO").PayableDAO;
+const TransactionDAO = require("../../dao/postgres/TransactionDAO").TransactionDAO;
 
 const DAO_MAP = {
     "payable": PayableDAO,

@@ -1,11 +1,12 @@
 "use strict";
 
 exports.Transaction = class Transaction {
-    constructor({id, payment_method, card_number, amount, pay_date}) {
+    constructor({id, payment_method, card_number, amount, bar_coude, pay_date}) {
         this.id = id;
         this.payment_method = payment_method;
         this.card_number = card_number;
         this.amount = amount;
+        this.bar_coude = bar_coude;
         this.pay_date = pay_date;
     }
 

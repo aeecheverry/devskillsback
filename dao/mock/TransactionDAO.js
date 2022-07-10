@@ -1,4 +1,4 @@
-const DB = require('./DB').DB;
+const DB = require("./DB").DB;
 
 exports.TransactionDAO = class TransactionDAO {
     constructor() {
@@ -20,6 +20,14 @@ exports.TransactionDAO = class TransactionDAO {
                 to_date
             }
             return await DB.list(this.collectionName, query);
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    async getByBarCode(barCode) {
+        try{
+            return await DB.getByBarCode(this.collectionName, barCode);
         } catch (error) {
             throw error;
         }

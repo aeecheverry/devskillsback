@@ -18,14 +18,25 @@
             "type": "number",
             "minimum": 0
         },
+        "bar_code": {
+            "type": "string"
+        },
         "pay_date": {
             "type": "string"
         }
     },
+    "anyOf": [
+        {
+          "not": {
+            "properties": { "payment_method": { "const": "cash" } },
+            "required": ["card_number"]
+          }
+        }
+    ],
     "required": [
         "payment_method",
-        "card_number",
         "amount",
+        "bar_code",
         "pay_date"
     ]
 }
