@@ -1,4 +1,5 @@
 const DBConnectionFactory = require("../../factories/postgres/DBConnectionFactory");
+const { Op } = require("sequelize");
 
 exports.TransactionDAO = class TransactionDAO {
     constructor() {
@@ -27,8 +28,15 @@ exports.TransactionDAO = class TransactionDAO {
                 group: ["pay_date"],
             };
             if(from_date && to_date) {
-                query.from = {
-                    $between: [from_date, to_date]
+                query.where = {
+                    [Op.and]: [
+                        {
+                            pay_date: {
+                                [Op.gte]: from_date,
+                                [Op.lte]: to_date
+                            }
+                        }
+                    ]
                 }
             }
             const transactions = await client.models.Transaction.findAll(query);

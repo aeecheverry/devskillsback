@@ -71,6 +71,16 @@ exports.PayBusiness = class PayBusiness {
         console.log("Input: ", JSON.stringify({from_date, to_date}));
         let output;
         try {
+            if(from_date && to_date) {
+                from_date = new Date(from_date);
+                to_date = new Date(to_date);
+            }else{
+                if(from_date && !to_date) {
+                    throw new Error("to_date is required");
+                }else if (!from_date && to_date) {
+                    throw new Error("from_date is required");
+                }
+            }
             const transactions = await this.transactionDao.list({ from_date, to_date });
             if(!transactions || transactions.length === 0) {
                 throw new Error("No transactions found");
