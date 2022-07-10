@@ -42,6 +42,7 @@ exports.PayBusiness = class PayBusiness {
             const id = uniqid();
             transaction.id = id;
             await this.transactionDao.create(transaction);
+            await this.payableDao.update({ pay_status: "paid", bar_code: transaction.bar_code });
             output = {
                 id
             };
@@ -60,7 +61,6 @@ exports.PayBusiness = class PayBusiness {
                 throw new Error("No tickets found");
             }
             output = tickets;
-            console.log("Output: ", output);
             return output;
         } catch (error) {
             throw error;
